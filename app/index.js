@@ -21,7 +21,7 @@ export default function Page() {
 				<TouchableOpacity
 					style={[styles.buttonStyles, styles.signupButtonColor]}
 					onPress={() => {
-						router.replace("/sign-up")
+						router?.navigate("/sign-up/step-1")
 					}}
 				>
 					<Text style={[styles.buttonText, styles.whiteTextColor]}>
@@ -31,7 +31,7 @@ export default function Page() {
 				<TouchableOpacity
 					style={[styles.buttonStyles, styles.loginButtonColor]}
 					onPress={() => {
-						router.replace("/login")
+						router?.navigate("/login")
 					}}
 				>
 					<Text style={[styles.buttonText, styles.whiteTextColor]}>

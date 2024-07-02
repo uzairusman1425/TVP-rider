@@ -1,0 +1,55 @@
+import { View, Text, StyleSheet } from "react-native"
+
+export default function SignUpProgress() {
+	return (
+		<View style={styles.signUpStepIndicator}>
+			<View style={styles.signUpStepTextContainer}>
+				<Text
+					style={[styles.signUpStepText, styles.signUpStepTextOrange]}
+				>
+					Step 1
+				</Text>
+				<Text style={styles.signUpStepText}>Out of</Text>
+				<Text
+					style={[styles.signUpStepText, styles.signUpStepTextOrange]}
+				>
+					Step 8
+				</Text>
+			</View>
+			<View style={styles.signUpStepProgressBar}>
+				<View style={styles.signUpStepProgress} />
+			</View>
+		</View>
+	)
+}
+
+const styles = StyleSheet.create({
+	signUpStepIndicator: {
+		flexDirection: "column",
+		gap: 5,
+		alignItems: "center"
+	},
+	signUpStepTextContainer: {
+		flexDirection: "row",
+		gap: 5,
+		alignItems: "center"
+	},
+	signUpStepText: {
+		fontWeight: "500"
+	},
+	signUpStepTextOrange: {
+		color: "#E35F21"
+	},
+	signUpStepProgressBar: {
+		height: 5,
+		width: 150,
+		borderRadius: 2.5,
+		backgroundColor: "lightgrey"
+	},
+	signUpStepProgress: {
+		height: "100%",
+		width: 150 * (1 / 8),
+		borderRadius: 2.5,
+		backgroundColor: "#E35F21"
+	}
+})
