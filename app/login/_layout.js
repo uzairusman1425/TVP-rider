@@ -17,7 +17,7 @@ export default function Layout() {
 				style={styles.backgroundGradient}
 				colors={["#FE5C25", "#000000"]}
 			>
-				<ScrollView>
+				<ScrollView showsVerticalScrollIndicator={false}>
 					<Slot />
 				</ScrollView>
 			</LinearGradient>

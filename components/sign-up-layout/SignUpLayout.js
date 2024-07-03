@@ -7,18 +7,16 @@ import {
 } from "react-native"
 import PropTypes from "prop-types"
 import SignUpHeader from "../sign-up-header/SignUpHeader"
-import SignUpProgress from "../sign-up-progress/SignUpProgress"
 
 export default function SignUpLayout({ children }) {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "padding" : "height"}
 		>
-			<ScrollView>
+			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.layoutScrollContainer}>
 					<SignUpHeader />
 					{children}
-					<SignUpProgress />
 				</View>
 			</ScrollView>
 		</KeyboardAvoidingView>

@@ -108,7 +108,7 @@ export default function Page() {
 				</Text>
 				<TouchableOpacity
 					onPress={() => {
-						router?.navigate("/sign-up/step-1")
+						router?.navigate("/sign-up")
 					}}
 				>
 					<Text style={styles.signUpButtonText}>Sign Up</Text>

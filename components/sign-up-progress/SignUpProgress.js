@@ -1,16 +1,14 @@
 import { View, Text, StyleSheet } from "react-native"
-import { usePathname } from "expo-router"
+import PropTypes from "prop-types"
 
-export default function SignUpProgress() {
-	const pathname = usePathname()
-
+export default function SignUpProgress({ currentStep }) {
 	return (
 		<View style={styles.signUpStepIndicator}>
 			<View style={styles.signUpStepTextContainer}>
 				<Text
 					style={[styles.signUpStepText, styles.signUpStepTextOrange]}
 				>
-					Step {pathname[pathname?.length - 1]}
+					Step {currentStep}
 				</Text>
 				<Text style={styles.signUpStepText}>Out of</Text>
 				<Text
@@ -24,9 +22,7 @@ export default function SignUpProgress() {
 					style={[
 						styles.signUpStepProgress,
 						{
-							width:
-								150 *
-								(parseInt(pathname[pathname?.length - 1]) / 8)
+							width: 150 * (currentStep / 8)
 						}
 					]}
 				/>
@@ -64,3 +60,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#E35F21"
 	}
 })
+
+SignUpProgress.propTypes = {
+	currentStep: PropTypes.number.isRequired
+}

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import {
 	View,
 	Text,
@@ -6,21 +5,33 @@ import {
 	TouchableOpacity,
 	StyleSheet
 } from "react-native"
-import { useRouter } from "expo-router"
+import PropTypes from "prop-types"
 import { Entypo } from "@expo/vector-icons"
-import SignUpFormNextButton from "../../../components/sign-up-form-next-button/SignUpFormNextButton"
+import SignUpFormNextButton from "../sign-up-form-next-button/SignUpFormNextButton"
 
-export default function Page() {
-	const router = useRouter()
-
-	const [checked, setChecked] = useState(false)
-
+export default function SignUpStep1Form({
+	firstName,
+	setFirstName,
+	lastName,
+	setLastName,
+	personalEmail,
+	setPersonalEmail,
+	personalPhoneNumber,
+	setPersonalPhoneNumber,
+	password,
+	setPassword,
+	gender,
+	setGender,
+	checked,
+	setChecked,
+	setCurrentStep
+}) {
 	const handleNext = () => {
-		router?.navigate("/sign-up/step-2")
+		setCurrentStep(2)
 	}
 
 	return (
-		<View style={styles.container}>
+		<View style={styles.formContainer}>
 			<Text style={styles.titleText}>
 				Let{"'"}s start! it should only take a few moments.
 			</Text>
@@ -29,14 +40,24 @@ export default function Page() {
 					<Text style={styles.inputFieldTitleText}>First Name</Text>
 					<Text style={styles.requiredMarker}>*</Text>
 				</View>
-				<TextInput style={styles.inputField} inputMode="text" />
+				<TextInput
+					style={styles.inputField}
+					inputMode="text"
+					value={firstName}
+					onChangeText={setFirstName}
+				/>
 			</View>
 			<View style={styles.inputFieldContainer}>
 				<View style={styles.inputFieldTitleContainer}>
 					<Text style={styles.inputFieldTitleText}>Last Name</Text>
 					<Text style={styles.requiredMarker}>*</Text>
 				</View>
-				<TextInput style={styles.inputField} inputMode="text" />
+				<TextInput
+					style={styles.inputField}
+					inputMode="text"
+					value={lastName}
+					onChangeText={setLastName}
+				/>
 			</View>
 			<View style={styles.inputFieldContainer}>
 				<View style={styles.inputFieldTitleContainer}>
@@ -45,7 +66,12 @@ export default function Page() {
 					</Text>
 					<Text style={styles.requiredMarker}>*</Text>
 				</View>
-				<TextInput style={styles.inputField} inputMode="email" />
+				<TextInput
+					style={styles.inputField}
+					inputMode="email"
+					value={personalEmail}
+					onChangeText={setPersonalEmail}
+				/>
 			</View>
 			<View style={styles.inputFieldContainer}>
 				<View style={styles.inputFieldTitleContainer}>
@@ -54,7 +80,12 @@ export default function Page() {
 					</Text>
 					<Text style={styles.requiredMarker}>*</Text>
 				</View>
-				<TextInput style={styles.inputField} inputMode="tel" />
+				<TextInput
+					style={styles.inputField}
+					inputMode="tel"
+					value={personalPhoneNumber}
+					onChangeText={setPersonalPhoneNumber}
+				/>
 			</View>
 			<View style={styles.inputFieldContainer}>
 				<View style={styles.inputFieldTitleContainer}>
@@ -65,6 +96,8 @@ export default function Page() {
 					style={styles.inputField}
 					inputMode="text"
 					secureTextEntry
+					value={password}
+					onChangeText={setPassword}
 				/>
 			</View>
 			<View style={styles.inputFieldContainer}>
@@ -72,7 +105,12 @@ export default function Page() {
 					<Text style={styles.inputFieldTitleText}>Gender</Text>
 					<Text style={styles.requiredMarker}>*</Text>
 				</View>
-				<TextInput style={styles.inputField} inputMode="text" />
+				<TextInput
+					style={styles.inputField}
+					inputMode="text"
+					value={gender}
+					onChangeText={setGender}
+				/>
 			</View>
 			<View style={styles.checkboxWrapper}>
 				<TouchableOpacity
@@ -91,14 +129,14 @@ export default function Page() {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		width: "100%",
-		flexDirection: "column",
-		gap: 10
-	},
 	titleText: {
 		fontSize: 20,
 		fontWeight: "bold"
+	},
+	formContainer: {
+		width: "100%",
+		flexDirection: "column",
+		gap: 10
 	},
 	inputFieldContainer: {
 		width: "100%",
@@ -142,3 +180,21 @@ const styles = StyleSheet.create({
 		fontWeight: "600"
 	}
 })
+
+SignUpStep1Form.propTypes = {
+	firstName: PropTypes.string.isRequired,
+	setFirstName: PropTypes.func.isRequired,
+	lastName: PropTypes.string.isRequired,
+	setLastName: PropTypes.func.isRequired,
+	personalEmail: PropTypes.string.isRequired,
+	setPersonalEmail: PropTypes.func.isRequired,
+	personalPhoneNumber: PropTypes.string.isRequired,
+	setPersonalPhoneNumber: PropTypes.func.isRequired,
+	password: PropTypes.string.isRequired,
+	setPassword: PropTypes.func.isRequired,
+	gender: PropTypes.string.isRequired,
+	setGender: PropTypes.func.isRequired,
+	checked: PropTypes.bool.isRequired,
+	setChecked: PropTypes.func.isRequired,
+	setCurrentStep: PropTypes.func.isRequired
+}
