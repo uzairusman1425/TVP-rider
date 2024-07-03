@@ -1,8 +1,12 @@
 import { Text, TouchableOpacity, StyleSheet } from "react-native"
+import PropTypes from "prop-types"
 
-export default function SignUpFormNextButton() {
+export default function SignUpFormNextButton({ handleNext }) {
 	return (
-		<TouchableOpacity style={styles.signUpFormNextButton}>
+		<TouchableOpacity
+			style={styles.signUpFormNextButton}
+			onPress={handleNext}
+		>
 			<Text style={styles.signUpFormNextButtonText}>Click to next</Text>
 		</TouchableOpacity>
 	)
@@ -23,3 +27,7 @@ const styles = StyleSheet.create({
 		color: "white"
 	}
 })
+
+SignUpFormNextButton.propTypes = {
+	handleNext: PropTypes.func.isRequired
+}

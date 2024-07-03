@@ -1,20 +1,32 @@
-import { View, StyleSheet } from "react-native"
+import {
+	View,
+	KeyboardAvoidingView,
+	ScrollView,
+	Platform,
+	StyleSheet
+} from "react-native"
 import PropTypes from "prop-types"
 import SignUpHeader from "../sign-up-header/SignUpHeader"
-import SignUpFooter from "../sign-up-footer/SignUpFooter"
+import SignUpProgress from "../sign-up-progress/SignUpProgress"
 
 export default function SignUpLayout({ children }) {
 	return (
-		<View style={styles.layoutContainer}>
-			<SignUpHeader />
-			{children}
-			<SignUpFooter />
-		</View>
+		<KeyboardAvoidingView
+			behavior={Platform.OS === "ios" ? "padding" : "height"}
+		>
+			<ScrollView>
+				<View style={styles.layoutScrollContainer}>
+					<SignUpHeader />
+					{children}
+					<SignUpProgress />
+				</View>
+			</ScrollView>
+		</KeyboardAvoidingView>
 	)
 }
 
 const styles = StyleSheet.create({
-	layoutContainer: {
+	layoutScrollContainer: {
 		flexDirection: "column",
 		gap: 15,
 		paddingVertical: 50,

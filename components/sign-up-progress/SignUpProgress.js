@@ -1,13 +1,16 @@
 import { View, Text, StyleSheet } from "react-native"
+import { usePathname } from "expo-router"
 
 export default function SignUpProgress() {
+	const pathname = usePathname()
+
 	return (
 		<View style={styles.signUpStepIndicator}>
 			<View style={styles.signUpStepTextContainer}>
 				<Text
 					style={[styles.signUpStepText, styles.signUpStepTextOrange]}
 				>
-					Step 1
+					Step {pathname[pathname?.length - 1]}
 				</Text>
 				<Text style={styles.signUpStepText}>Out of</Text>
 				<Text
@@ -17,7 +20,16 @@ export default function SignUpProgress() {
 				</Text>
 			</View>
 			<View style={styles.signUpStepProgressBar}>
-				<View style={styles.signUpStepProgress} />
+				<View
+					style={[
+						styles.signUpStepProgress,
+						{
+							width:
+								150 *
+								(parseInt(pathname[pathname?.length - 1]) / 8)
+						}
+					]}
+				/>
 			</View>
 		</View>
 	)
@@ -48,7 +60,6 @@ const styles = StyleSheet.create({
 	},
 	signUpStepProgress: {
 		height: "100%",
-		width: 150 * (1 / 8),
 		borderRadius: 2.5,
 		backgroundColor: "#E35F21"
 	}
