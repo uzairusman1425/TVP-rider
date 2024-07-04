@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 	signUpFormNextButton: {
 		height: 55,
 		width: "100%",
-		borderRadius: 7.5,
+		borderRadius: 5,
 		backgroundColor: "#E35F21",
 		alignItems: "center",
 		justifyContent: "center"

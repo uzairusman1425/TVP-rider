@@ -88,63 +88,63 @@ export default function SignUpStep2Form({ setCurrentStep }) {
 						</View>
 					)}
 				</View>
-				<View style={styles.inputFieldContainer}>
-					<View style={styles.inputFieldTitleContainer}>
-						<Text style={styles.inputFieldTitleText}>
-							Registration Number
-						</Text>
-						<Text style={styles.requiredMarker}>*</Text>
-					</View>
-					<TextInput
-						style={styles.inputField}
-						inputMode="text"
-						value={registrationNumber}
-						onChangeText={setRegistrationNumber}
+			</View>
+			<View style={styles.inputFieldContainer}>
+				<View style={styles.inputFieldTitleContainer}>
+					<Text style={styles.inputFieldTitleText}>
+						Registration Number
+					</Text>
+					<Text style={styles.requiredMarker}>*</Text>
+				</View>
+				<TextInput
+					style={styles.inputField}
+					inputMode="text"
+					value={registrationNumber}
+					onChangeText={setRegistrationNumber}
+				/>
+			</View>
+			<View style={styles.inputFieldContainer}>
+				<View style={styles.inputFieldTitleContainer}>
+					<Text style={styles.inputFieldTitleText}>
+						License Number
+					</Text>
+					<Text style={styles.requiredMarker}>*</Text>
+				</View>
+				<TextInput
+					style={styles.inputField}
+					inputMode="text"
+					value={licenseNumber}
+					onChangeText={setLicenseNumber}
+				/>
+			</View>
+			<View style={styles.inputFieldContainer}>
+				<View style={styles.inputFieldTitleContainer}>
+					<Text style={styles.inputFieldTitleText}>
+						A Picture of Vehicle
+					</Text>
+					<Text style={styles.requiredMarker}>*</Text>
+				</View>
+				<View style={styles.imageInputField}>
+					<Image
+						source={require("../../assets/icons/upload-cloud.png")}
+						style={styles.uploadIcon}
+						resizeMode="contain"
 					/>
 				</View>
-				<View style={styles.inputFieldContainer}>
-					<View style={styles.inputFieldTitleContainer}>
-						<Text style={styles.inputFieldTitleText}>
-							License Number
-						</Text>
-						<Text style={styles.requiredMarker}>*</Text>
-					</View>
-					<TextInput
-						style={styles.inputField}
-						inputMode="text"
-						value={licenseNumber}
-						onChangeText={setLicenseNumber}
+			</View>
+			<View style={styles.inputFieldContainer}>
+				<View style={styles.inputFieldTitleContainer}>
+					<Text style={styles.inputFieldTitleText}>
+						A Picture of License
+					</Text>
+					<Text style={styles.requiredMarker}>*</Text>
+				</View>
+				<View style={styles.imageInputField}>
+					<Image
+						source={require("../../assets/icons/upload-cloud.png")}
+						style={styles.uploadIcon}
+						resizeMode="contain"
 					/>
-				</View>
-				<View style={styles.inputFieldContainer}>
-					<View style={styles.inputFieldTitleContainer}>
-						<Text style={styles.inputFieldTitleText}>
-							A Picture of Vehicle
-						</Text>
-						<Text style={styles.requiredMarker}>*</Text>
-					</View>
-					<View style={styles.imageInputField}>
-						<Image
-							source={require("../../assets/icons/upload-cloud.png")}
-							style={styles.uploadIcon}
-							resizeMode="contain"
-						/>
-					</View>
-				</View>
-				<View style={styles.inputFieldContainer}>
-					<View style={styles.inputFieldTitleContainer}>
-						<Text style={styles.inputFieldTitleText}>
-							A Picture of License
-						</Text>
-						<Text style={styles.requiredMarker}>*</Text>
-					</View>
-					<View style={styles.imageInputField}>
-						<Image
-							source={require("../../assets/icons/upload-cloud.png")}
-							style={styles.uploadIcon}
-							resizeMode="contain"
-						/>
-					</View>
 				</View>
 			</View>
 			<SignUpFormNextButton handleNext={handleNext} />
