@@ -12,6 +12,7 @@ export default function SignUpLayout({ children }) {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "padding" : "height"}
+			style={styles.layout}
 		>
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.layoutScrollContainer}>
@@ -24,6 +25,10 @@ export default function SignUpLayout({ children }) {
 }
 
 const styles = StyleSheet.create({
+	layout: {
+		backgroundColor: "white",
+		flex: 1
+	},
 	layoutScrollContainer: {
 		flexDirection: "column",
 		gap: 15,

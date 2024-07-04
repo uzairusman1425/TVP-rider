@@ -22,6 +22,7 @@ export default function Page() {
 			<Image
 				source={require("../../assets/logo/tvp-logo-white.png")}
 				style={styles.logo}
+				resizeMode="contain"
 			/>
 			<View style={styles.formContainer}>
 				<Text style={styles.titleText}>Login to your Account</Text>
@@ -87,18 +88,21 @@ export default function Page() {
 					<Image
 						source={require("../../assets/logo/facebook-logo.png")}
 						style={styles.socialIcon}
+						resizeMode="contain"
 					/>
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.socialSignInButton}>
 					<Image
 						source={require("../../assets/logo/google-logo.png")}
 						style={styles.socialIcon}
+						resizeMode="contain"
 					/>
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.socialSignInButton}>
 					<Image
 						source={require("../../assets/logo/apple-logo.png")}
 						style={styles.socialIcon}
+						resizeMode="contain"
 					/>
 				</TouchableOpacity>
 			</View>

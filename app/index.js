@@ -9,10 +9,12 @@ export default function Page() {
 			<Image
 				source={require("../assets/images/welcome-image.png")}
 				style={styles.bgImage}
+				resizeMode="cover"
 			/>
 			<Image
 				source={require("../assets/logo/tvp-logo-black.png")}
 				style={styles.logo}
+				resizeMode="contain"
 			/>
 			<Text style={styles.bgText}>
 				The Experience of Buying Food Quickly

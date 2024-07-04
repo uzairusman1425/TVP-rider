@@ -1,7 +1,23 @@
+import { useEffect } from "react"
 import { View, Text, StyleSheet } from "react-native"
+import Animated, {
+	useSharedValue,
+	useAnimatedStyle,
+	withTiming
+} from "react-native-reanimated"
 import PropTypes from "prop-types"
 
 export default function SignUpProgress({ currentStep }) {
+	const width = useSharedValue(0)
+
+	const animatedStyle = useAnimatedStyle(() => ({
+		width: width.value
+	}))
+
+	useEffect(() => {
+		width.value = withTiming(150 * (currentStep / 8), { duration: 500 })
+	}, [currentStep])
+
 	return (
 		<View style={styles.signUpStepIndicator}>
 			<View style={styles.signUpStepTextContainer}>
@@ -18,13 +34,8 @@ export default function SignUpProgress({ currentStep }) {
 				</Text>
 			</View>
 			<View style={styles.signUpStepProgressBar}>
-				<View
-					style={[
-						styles.signUpStepProgress,
-						{
-							width: 150 * (currentStep / 8)
-						}
-					]}
+				<Animated.View
+					style={[styles.signUpStepProgress, animatedStyle]}
 				/>
 			</View>
 		</View>

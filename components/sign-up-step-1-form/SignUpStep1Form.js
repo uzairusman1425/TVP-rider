@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
 	View,
 	Text,
@@ -9,23 +10,15 @@ import PropTypes from "prop-types"
 import { Entypo } from "@expo/vector-icons"
 import SignUpFormNextButton from "../sign-up-form-next-button/SignUpFormNextButton"
 
-export default function SignUpStep1Form({
-	firstName,
-	setFirstName,
-	lastName,
-	setLastName,
-	personalEmail,
-	setPersonalEmail,
-	personalPhoneNumber,
-	setPersonalPhoneNumber,
-	password,
-	setPassword,
-	gender,
-	setGender,
-	checked,
-	setChecked,
-	setCurrentStep
-}) {
+export default function SignUpStep1Form({ setCurrentStep }) {
+	const [firstName, setFirstName] = useState("")
+	const [lastName, setLastName] = useState("")
+	const [personalEmail, setPersonalEmail] = useState("")
+	const [personalPhoneNumber, setPersonalPhoneNumber] = useState("")
+	const [password, setPassword] = useState("")
+	const [gender, setGender] = useState("")
+	const [checked, setChecked] = useState(false)
+
 	const handleNext = () => {
 		setCurrentStep(2)
 	}
@@ -182,19 +175,5 @@ const styles = StyleSheet.create({
 })
 
 SignUpStep1Form.propTypes = {
-	firstName: PropTypes.string.isRequired,
-	setFirstName: PropTypes.func.isRequired,
-	lastName: PropTypes.string.isRequired,
-	setLastName: PropTypes.func.isRequired,
-	personalEmail: PropTypes.string.isRequired,
-	setPersonalEmail: PropTypes.func.isRequired,
-	personalPhoneNumber: PropTypes.string.isRequired,
-	setPersonalPhoneNumber: PropTypes.func.isRequired,
-	password: PropTypes.string.isRequired,
-	setPassword: PropTypes.func.isRequired,
-	gender: PropTypes.string.isRequired,
-	setGender: PropTypes.func.isRequired,
-	checked: PropTypes.bool.isRequired,
-	setChecked: PropTypes.func.isRequired,
 	setCurrentStep: PropTypes.func.isRequired
 }
