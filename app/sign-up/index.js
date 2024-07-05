@@ -6,6 +6,8 @@ import SignUpStep3Form from "../../components/sign-up-step-3-form/SignUpStep3For
 import SignUpStep4Form from "../../components/sign-up-step-4-form/SignUpStep4Form"
 import SignUpStep5Form from "../../components/sign-up-step-5-form/SignUpStep5Form"
 import SignUpStep6Form from "../../components/sign-up-step-6-form/SignUpStep6Form"
+import SignUpStep7Form from "../../components/sign-up-step-7-form/SignUpStep7Form"
+import SignUpStep8Form from "../../components/sign-up-step-8-form/SignUpStep8Form"
 import SignUpProgress from "../../components/sign-up-progress/SignUpProgress"
 
 export default function Page() {
@@ -25,8 +27,10 @@ export default function Page() {
 				<SignUpStep5Form setCurrentStep={setCurrentStep} />
 			) : currentStep === 6 ? (
 				<SignUpStep6Form setCurrentStep={setCurrentStep} />
+			) : currentStep === 7 ? (
+				<SignUpStep7Form setCurrentStep={setCurrentStep} />
 			) : (
-				<View />
+				currentStep === 8 && <SignUpStep8Form />
 			)}
 			<SignUpProgress currentStep={currentStep} />
 		</View>
