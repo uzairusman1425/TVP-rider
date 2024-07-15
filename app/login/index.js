@@ -17,6 +17,10 @@ export default function Page() {
 	const [password, setPassword] = useState("")
 	const [rememberMe, setRememberMe] = useState(false)
 
+	const handleLogin = () => {
+		router?.navigate("/home")
+	}
+
 	return (
 		<View style={styles.container}>
 			<Image
@@ -71,7 +75,10 @@ export default function Page() {
 					</TouchableOpacity>
 					<Text style={styles.checkboxText}>Remember me</Text>
 				</View>
-				<TouchableOpacity style={styles.loginButton}>
+				<TouchableOpacity
+					style={styles.loginButton}
+					onPress={handleLogin}
+				>
 					<Text style={styles.loginButtonText}>Login</Text>
 				</TouchableOpacity>
 			</View>
