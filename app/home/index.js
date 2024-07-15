@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
 	View,
 	SafeAreaView,
@@ -9,22 +10,40 @@ import {
 import { LinearGradient } from "expo-linear-gradient"
 import { Entypo, MaterialCommunityIcons, Octicons } from "@expo/vector-icons"
 import { PieChart } from "react-native-gifted-charts"
+import SideNav from "../../components/side-nav/SideNav"
+import { router } from "expo-router"
 
 export default function Page() {
+	const [openSideNav, setOpenSideNav] = useState(false)
+
 	const data = [
 		{ value: 35, color: "#ffffff", title: "Completed orders" },
 		{ value: 55, color: "#E35F21", title: "Incomplete orders" }
 	]
 
+	const handleLogout = () => {
+		setOpenSideNav(false)
+		router?.navigate("/")
+	}
+
 	return (
 		<View style={styles.container}>
+			<SideNav
+				openSideNav={openSideNav}
+				setOpenSideNav={setOpenSideNav}
+				handleLogout={handleLogout}
+			/>
 			<LinearGradient
 				style={styles.headerBackgroundGradient}
 				colors={["#FE5C25", "#000000"]}
 			>
 				<SafeAreaView style={styles.headerContainer}>
 					<View style={styles.headerOptionsContainer}>
-						<TouchableOpacity>
+						<TouchableOpacity
+							onPress={() => {
+								setOpenSideNav(true)
+							}}
+						>
 							<Entypo name="menu" size={30} color="white" />
 						</TouchableOpacity>
 						<Image
