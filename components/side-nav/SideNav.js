@@ -164,12 +164,6 @@ export default function SideNav({ openSideNav, setOpenSideNav, handleLogout }) {
 	)
 }
 
-SideNav.propTypes = {
-	openSideNav: PropTypes.bool.isRequired,
-	setOpenSideNav: PropTypes.func.isRequired,
-	handleLogout: PropTypes.func.isRequired
-}
-
 const styles = StyleSheet.create({
 	sideNavWrapper: {
 		flex: 1,
@@ -298,3 +292,8 @@ const styles = StyleSheet.create({
 		backgroundColor: "white"
 	}
 })
+SideNav.propTypes = {
+	openSideNav: PropTypes.bool.isRequired,
+	setOpenSideNav: PropTypes.func.isRequired,
+	handleLogout: PropTypes.func.isRequired
+}
