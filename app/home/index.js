@@ -1,5 +1,11 @@
 import { useState } from "react"
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native"
+import {
+	View,
+	TouchableOpacity,
+	Text,
+	StatusBar,
+	StyleSheet
+} from "react-native"
 import { useRouter } from "expo-router"
 import SideNav from "../../components/side-nav/SideNav"
 import HomeScreenHeader from "../../components/home-screen-header/HomeScreenHeader"
@@ -43,7 +49,8 @@ const styles = StyleSheet.create({
 		flexDirection: "column",
 		alignItems: "center",
 		gap: 10,
-		backgroundColor: "white"
+		backgroundColor: "white",
+		marginTop: StatusBar?.currentHeight || 0
 	},
 	bodyContainer: {
 		width: "100%",

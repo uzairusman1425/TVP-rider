@@ -35,7 +35,13 @@ export default function SideNav({ openSideNav, setOpenSideNav, handleLogout }) {
 							<View style={styles.logoContainer}>
 								<Text style={styles.logoText}>TVP</Text>
 							</View>
-							<TouchableOpacity style={styles.navItemContainer}>
+							<TouchableOpacity
+								style={styles.navItemContainer}
+								onPress={() => {
+									setOpenSideNav(false)
+									router?.navigate("/profile")
+								}}
+							>
 								<Image
 									source={require("../../assets/icons/profile.png")}
 									style={styles.navItemIcon}
@@ -179,7 +185,7 @@ const styles = StyleSheet.create({
 		borderBottomRightRadius: 25,
 		borderTopRightRadius: 25,
 		backgroundColor: "#181818",
-		paddingBottom: StatusBar?.currentHeight || 0
+		paddingVertical: StatusBar?.currentHeight || 0
 	},
 	sideNavBody: {
 		flex: 1,
